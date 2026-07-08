@@ -5,10 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --accent: oklch(0.97 0 0);
-  --main: #445BC3;
-  --main-light:#5D7AFF;
-  --secondary-color: #F5F9FA;
+  --accent: #41b69d;
+  --main: #445bc3;
+  --main-light: #5d7aff;
+  --secondary: #f5f9fa;
+  --dark-grey: #6c6c6c;
+  --light-grey: #808080;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -17,7 +20,6 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -48,7 +50,9 @@
   --color-accent: var(--accent);
   --color-main: var(--main);
   --color-main-light: var(--main-light);
-  --color-secondary: var(--secondary-color);
+  --color-secondary: var(--secondary);
+  --color-dark-grey: var(--dark-grey);
+  --color-light-grey: var(--light-grey);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
@@ -86,7 +90,6 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-
 }
 
 .dark {
@@ -133,4 +136,9 @@
   html {
     @apply font-sans;
   }
+}
+
+textarea::placeholder {
+  color: var(--accent); /* Put your desired color code here */
+  opacity: 1;    /* Ensures full color visibility in Firefox */
 }

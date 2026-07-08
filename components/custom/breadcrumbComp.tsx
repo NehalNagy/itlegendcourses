@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { breadcrumbItemType } from "@/lib/types";
 
-export default function BreadcrumbComp(items: breadcrumbItemType[]) {
+export default function BreadcrumbComp({ items }: { items: breadcrumbItemType[] }) {
   return (
     <Breadcrumb>
       <BreadcrumbList>

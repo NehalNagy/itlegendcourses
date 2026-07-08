@@ -3,3 +3,17 @@ export type breadcrumbItemType = {
   path: string;
   
 };
+
+export type studentType={
+  name:string;
+  email:string;
+  phone:string;
+  image:string;
+}
+
+export type commentType={
+  student:studentType;
+  date:string;
+  commentContent:string;
+
+}
