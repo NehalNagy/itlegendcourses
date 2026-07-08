@@ -13,6 +13,7 @@ import {
   Podium,
   TableOfContents,
 } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 let breadcrumbItems: breadcrumbItemType[] = [
   {
@@ -35,6 +36,7 @@ export default function CourseDetails() {
     <>
       <Header title={pageTitle} breadcrumbItems={breadcrumbItems} />
       <div className="container-fluid flex flex-wrap p-4 ">
+        {/* left side section */}
         <div className="w-full md:w-3/4">
           <div className="h-96 rounded-sm">
             <Suspense fallback={<p>Loading video...</p>}>
@@ -43,27 +45,47 @@ export default function CourseDetails() {
           </div>
           {/* icons section */}
           <div className="flex items-center gap-2 mt-4 my-5">
-            <Button className="bg-accent rounded-full p-2" title="Table of Contents">
-              <TableOfContents  className="text-black" />
+            <Button
+              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              title="Table of Contents"
+            >
+              <TableOfContents className="text-black" />
             </Button>
-            <Button className="bg-accent rounded-full p-2" title="Comments">
+            <Button
+              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              title="Comments"
+            >
               <MessageSquareText className="text-black" />
             </Button>
-            <Button className="bg-accent rounded-full p-2" title="Ask a Question">
+            <Button
+              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              title="Ask a Question"
+            >
               <MessageCircleQuestionMark className="text-black" />
             </Button>
 
-            <Button className="bg-accent rounded-full p-2" title="Leaderboard">
+            <Button
+              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              title="Leaderboard"
+            >
               <Podium className="text-black" />
             </Button>
           </div>
+          {/* Course Materials Section */}
           <div>
             <h2 className="font-bold">Course Materials</h2>
+            <Card className="rounded-sm shadow-[0_0_15px_rgba(0,0,0,0.1)]">
+              <CardContent>
+                <p>Card Content</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
+        {/* right side section */}
         <div className="w-full md:w-1/4">
           <h2 className="font-bold">Topics for This Course</h2>
         </div>
+        {/* Comments Section */}
         <div className="w-full md:w-3/4">
           <h2 className="font-bold">Comments</h2>
           <div className="flex flex-col gap-4">
@@ -110,7 +132,7 @@ export default function CourseDetails() {
             </div>
           </div>
           <div className="mt-4 grid w-full gap-2">
-            <Textarea className="h-52" placeholder="Write a comment..." />
+            <Textarea className="h-52 focus-within:shadow-[0_0_15px_rgba(0,0,0,0.1)] focus-visible:ring-0 focus-visible:border-0" placeholder="Write a comment..." />
             <Button className="w-fit bg-accent p-6 rounded-sm text-black hover:bg-accent/80">
               Submit Review
             </Button>
