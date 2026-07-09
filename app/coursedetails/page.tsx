@@ -46,26 +46,26 @@ export default function CourseDetails() {
           {/* icons section */}
           <div className="flex items-center gap-2 mt-4 my-5">
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
               title="Table of Contents"
             >
               <TableOfContents className="text-black" />
             </Button>
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
               title="Comments"
             >
               <MessageSquareText className="text-black" />
             </Button>
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
               title="Ask a Question"
             >
               <MessageCircleQuestionMark className="text-black" />
             </Button>
 
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2"
+              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
               title="Leaderboard"
             >
               <Podium className="text-black" />
