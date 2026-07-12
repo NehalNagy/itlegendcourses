@@ -8,10 +8,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 import {
+  Clock,
+  Globe,
+  LibraryBig,
   MessageCircleQuestionMark,
   MessageSquareText,
   Podium,
   TableOfContents,
+  Users,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -71,12 +75,38 @@ export default function CourseDetails() {
               <Podium className="text-black" />
             </Button>
           </div>
-          {/* Course Materials Section */}
-          <div>
-            <h2 className="font-bold">Course Materials</h2>
-            <Card className="rounded-sm shadow-[0_0_15px_rgba(0,0,0,0.1)]">
+          {/* Course Details Section */}
+          <div className="w-3/4">
+            <h2 className="font-bold my-3">Course Details</h2>
+            <Card className="rounded-sm shadow-[0_0_15px_rgba(0,0,0,0.1)] ">
               <CardContent>
-                <p>Card Content</p>
+                <div className="grid grid-cols-2 gap-1 ">
+                  <div className="grid grid-cols-2 gap-1 ">
+                    <div>
+                      <Clock size="20" className="inline" />
+                      <span className="font-bold"> Duration:</span>
+                    </div>
+                    <div>3 weeks</div>
+                    <div className="mt-3">
+                      <LibraryBig size="20" className="inline" />
+                      <span className="font-bold"> Lessions:</span>
+                    </div>
+                    <div className="mt-3">8</div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1 ">
+                    <div>
+                      <Users size="20" className="inline" />
+                      <span className="font-bold"> Enrolled:</span>
+                    </div>
+                    <div>65 Students</div>
+
+                    <div className="mt-3">                     
+                      <Globe size="20" className="inline" />
+                      <span className="font-bold"> Language:</span>
+                    </div>
+                    <div className="mt-3">English</div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -87,7 +117,7 @@ export default function CourseDetails() {
         </div>
         {/* Comments Section */}
         <div className="w-full md:w-3/4">
-          <h2 className="font-bold">Comments</h2>
+          <h2 className="font-bold my-3">Comments</h2>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
               <Avatar size="lg">
@@ -132,7 +162,12 @@ export default function CourseDetails() {
             </div>
           </div>
           <div className="mt-4 grid w-full gap-2">
-            <Textarea className="h-52 focus-within:shadow-[0_0_15px_rgba(0,0,0,0.1)] focus-visible:ring-0 focus-visible:border-0" placeholder="Write a comment..." />
+            <Textarea
+              id="comment"
+              className="h-52 focus-within:shadow-[0_0_15px_rgba(0,0,0,0.1)] focus-visible:ring-0 focus-visible:border-0"
+              aria-label="Write a comment"
+              placeholder="Write a comment..."
+            />
             <Button className="w-fit bg-accent p-6 rounded-sm text-black hover:bg-accent/80">
               Submit Review
             </Button>
