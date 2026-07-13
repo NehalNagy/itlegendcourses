@@ -10,8 +10,10 @@ export default function Header({
 }) {
   return (
     <header className="p-4 bg-secondary w-full">
-      <BreadcrumbComp items={breadcrumbItems} />
-      <h1 className="text-2xl font-bold">{title}</h1>
+      <div className="container mx-auto">
+        <BreadcrumbComp items={breadcrumbItems} />
+        <h1 className="text-2xl font-bold">{title}</h1>
+      </div>
     </header>
   );
 }

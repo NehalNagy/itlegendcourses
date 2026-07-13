@@ -39,9 +39,9 @@ export default function CourseDetails() {
   return (
     <>
       <Header title={pageTitle} breadcrumbItems={breadcrumbItems} />
-      <div className="container-fluid flex flex-wrap p-4 ">
+      <div className="container mx-auto flex flex-wrap mt-3 ">
         {/* left side section */}
-        <div className="w-full md:w-3/4">
+        <div className="w-full md:w-2/3">
           <div className="h-96 rounded-sm">
             <Suspense fallback={<p>Loading video...</p>}>
               <VideoComponent />
@@ -76,35 +76,36 @@ export default function CourseDetails() {
             </Button>
           </div>
           {/* Course Details Section */}
-          <div className="w-3/4">
+          <div className="">
             <h2 className="font-bold my-3">Course Details</h2>
-            <Card className="rounded-sm shadow-[0_0_15px_rgba(0,0,0,0.1)] ">
+            <Card className="rounded-sm shadow-[0_0_15px_rgba(0,0,0,0.1)]">
               <CardContent>
-                <div className="grid grid-cols-2 gap-1 ">
-                  <div className="grid grid-cols-2 gap-1 ">
+                <div className="grid grid-cols-2 gap-4 ">
+                  <div className="grid grid-cols-2 gap-1 gap-y-3 ">
                     <div>
                       <Clock size="20" className="inline" />
                       <span className="font-bold"> Duration:</span>
                     </div>
                     <div>3 weeks</div>
-                    <div className="mt-3">
+                    <Separator className="col-span-2" />
+                    <div>
                       <LibraryBig size="20" className="inline" />
                       <span className="font-bold"> Lessions:</span>
                     </div>
-                    <div className="mt-3">8</div>
+                    <div>8</div>
                   </div>
-                  <div className="grid grid-cols-2 gap-1 ">
+                  <div className="grid grid-cols-2 gap-1 gap-y-3 ">
                     <div>
                       <Users size="20" className="inline" />
                       <span className="font-bold"> Enrolled:</span>
                     </div>
                     <div>65 Students</div>
-
-                    <div className="mt-3">                     
+                    <Separator className="col-span-2" />
+                    <div>
                       <Globe size="20" className="inline" />
                       <span className="font-bold"> Language:</span>
                     </div>
-                    <div className="mt-3">English</div>
+                    <div>English</div>
                   </div>
                 </div>
               </CardContent>
@@ -112,11 +113,12 @@ export default function CourseDetails() {
           </div>
         </div>
         {/* right side section */}
-        <div className="w-full md:w-1/4">
+        <div className="w-full md:w-1/3">
           <h2 className="font-bold">Topics for This Course</h2>
         </div>
         {/* Comments Section */}
-        <div className="w-full md:w-3/4">
+
+        <div className="w-full md:w-2/3">
           <h2 className="font-bold my-3">Comments</h2>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
