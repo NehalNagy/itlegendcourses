@@ -18,6 +18,7 @@ import {
   Users,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 let breadcrumbItems: breadcrumbItemType[] = [
   {
@@ -35,6 +36,7 @@ let breadcrumbItems: breadcrumbItemType[] = [
 ];
 
 const pageTitle = "Starting SEO as your Home";
+const courseProgress = 50;
 export default function CourseDetails() {
   return (
     <>
@@ -113,8 +115,39 @@ export default function CourseDetails() {
           </div>
         </div>
         {/* right side section */}
-        <div className="w-full md:w-1/3">
-          <h2 className="font-bold">Topics for This Course</h2>
+
+        <div className=" w-full md:w-1/3">
+          {/* progress bar section */}
+          <div>
+            <div className="flex items-center">
+              <h2 className="font-bold">Topics for This Course</h2>
+            </div>
+            <div className="mt-10 px-1 ">
+              <div className="relative pt-8">
+                <div
+                  className="absolute bottom-3 flex -translate-x-1/2 flex-col items-center"
+                  style={{ left: `${courseProgress}%` }}
+                >
+                  <div className="rounded-full border-2 p-2 border-grey-50">
+                    You
+                  </div>
+                
+                  <div className="mt-1 w-2 h-2 rotate-180 bg-border [clip-path:polygon(50%_0%,0%_100%,100%_100%)]"></div>
+                </div>
+                <Progress
+                  value={courseProgress}
+                  className="[&_[data-slot=progress-track]]:h-2 [&_[data-slot=progress-track]]:bg-muted [&_[data-slot=progress-indicator]]:bg-accent"
+                />
+
+                <p
+                  className="absolute top-full -translate-x-1/2 pt-2 text-sm font-semibold text-dark-grey"
+                  style={{ left: `${courseProgress}%` }}
+                >
+                  {courseProgress}%
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         {/* Comments Section */}
 
