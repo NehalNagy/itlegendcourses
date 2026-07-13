@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import LessonCard from "@/components/course-content/lesson-card";
 
 let breadcrumbItems: breadcrumbItemType[] = [
   {
@@ -118,7 +119,7 @@ export default function CourseDetails() {
 
         <div className=" w-full md:w-1/3">
           {/* progress bar section */}
-          <div>
+          <div className="mb-10">
             <div className="flex items-center">
               <h2 className="font-bold">Topics for This Course</h2>
             </div>
@@ -148,6 +149,10 @@ export default function CourseDetails() {
               </div>
             </div>
           </div>
+
+
+          {/* Lesson List Section */}
+          <LessonCard lessonTitle="Lesson1" lessonDescription="lesson 1 is about..."/>
         </div>
         {/* Comments Section */}
 
