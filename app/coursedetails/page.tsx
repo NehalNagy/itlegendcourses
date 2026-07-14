@@ -165,7 +165,7 @@ export default function CourseDetails() {
                 </div>
                 <Progress
                   value={courseProgress}
-                  className="[&_[data-slot=progress-track]]:h-2 [&_[data-slot=progress-track]]:bg-muted [&_[data-slot=progress-indicator]]:bg-accent"
+                  className="**:data-[slot=progress-track]:h-2 **:data-[slot=progress-track]:bg-muted **:data-[slot=progress-indicator]:bg-accent"
                 />
 
                 <p
