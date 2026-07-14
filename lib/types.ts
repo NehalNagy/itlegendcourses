@@ -17,3 +17,14 @@ export type commentType={
   commentContent:string;
 
 }
+export type lessonItemBadgeType={
+  badgeTitle:string;
+  badgeColor:string;
+}
+
+export type lessonItemType={
+  id:number;
+  title:string;
+  isLocked:boolean;
+  badges?:lessonItemBadgeType[];
+}

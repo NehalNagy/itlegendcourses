@@ -36,6 +36,34 @@ let breadcrumbItems: breadcrumbItemType[] = [
   },
 ];
 
+let lessonDetails = [{
+  id: 1,
+  lessonTitle: "Week 1-4",
+  lessonDescription: "Advanced story telling techniques for writers: Personas, Characters & Plots",
+  lessonItems: [
+    {
+      id: 11,
+      title: "Introduction",
+      isLocked: false,
+      badges: [{badgeTitle:"0 Question", badgeColor:"green"},{badgeTitle:"10 minutes", badgeColor:"red"}],
+    },
+    {
+      id: 12,
+      title: "Course Overview",
+      isLocked: true,
+      badges: [{badgeTitle:"2 Question", badgeColor:"green"}],
+    },
+     {
+      id: 13,
+      title: "Course Exercise/Reference Files",
+      isLocked: true,
+      badges: [{badgeTitle:"2 Question", badgeColor:"green"}],
+    },
+  ],
+},
+
+];
+
 const pageTitle = "Starting SEO as your Home";
 const courseProgress = 50;
 export default function CourseDetails() {
@@ -132,7 +160,7 @@ export default function CourseDetails() {
                   <div className="rounded-full border-2 p-2 border-grey-50">
                     You
                   </div>
-                
+
                   <div className="mt-1 w-2 h-2 rotate-180 bg-border [clip-path:polygon(50%_0%,0%_100%,100%_100%)]"></div>
                 </div>
                 <Progress
@@ -150,9 +178,17 @@ export default function CourseDetails() {
             </div>
           </div>
 
-
           {/* Lesson List Section */}
-          <LessonCard lessonTitle="Lesson1" lessonDescription="lesson 1 is about..."/>
+
+          {lessonDetails.map((lesson) => (        
+          <LessonCard
+          key={lesson.id}
+            lessonTitle={lesson.lessonTitle}
+            lessonDescription={lesson.lessonDescription}
+            lessonItems={lesson.lessonItems}
+          />
+          ))}
+
         </div>
         {/* Comments Section */}
 
