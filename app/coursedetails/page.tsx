@@ -124,16 +124,16 @@ export default function CourseDetails() {
   return (
     <>
       <Header title={pageTitle} breadcrumbItems={breadcrumbItems} />
-      <div className="container mx-auto grid grid-cols-3 gap-8 mt-3 ">
+      <div className="container mx-auto grid grid-col-1 md:grid-cols-3 gap-0 md:gap-8 mt-3 ">
         {/* left side section */}
-        <div className="col-span-2">
-          <div className="h-96 rounded-sm">
+        <div className="col-span-2 mx-3 xl:ms-0">
+          <div className=" h-96 rounded-sm">
             <Suspense fallback={<p>Loading video...</p>}>
               <VideoComponent />
             </Suspense>
           </div>
           {/* icons section */}
-          <div className="flex items-center gap-2 mt-4 my-5">
+          <div className="flex items-center gap-2  my-5">
             <Button
               className="bg-white hover:bg-dark-grey text-black hover:text-white hover:border-none rounded-full p-2 cursor-pointer border-border border-2 w-9 h-9"
               title="Table of Contents"
@@ -257,7 +257,7 @@ export default function CourseDetails() {
         </div>
         </div>
         {/* right side section */}
-        <div>
+        <div className="mx-3 xl:ms-0">
           {/* progress bar section */}
           <div className="mb-10">
             <div className="flex items-center">
