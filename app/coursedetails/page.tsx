@@ -124,9 +124,11 @@ export default function CourseDetails() {
   return (
     <>
       <Header title={pageTitle} breadcrumbItems={breadcrumbItems} />
-      <div className="container mx-auto grid grid-col-1 md:grid-cols-3 gap-0 md:gap-8 mt-3 ">
-        {/* left side section */}
-        <div className="col-span-2 mx-3 xl:ms-0">
+      <div
+        className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 mt-3 [grid-template-areas:'info'_'right'_'comments'] md:[grid-template-areas:'info_info_right'_'comments_comments_right']"
+      >
+        {/* info section: video, icons, course details */}
+        <div className="[grid-area:info] mx-3 xl:ms-0">
           <div className=" h-96 rounded-sm">
             <Suspense fallback={<p>Loading video...</p>}>
               <VideoComponent />
@@ -196,9 +198,54 @@ export default function CourseDetails() {
               </CardContent>
             </Card>
           </div>
+        </div>
+        {/* right side section */}
+        <div className="[grid-area:right] mx-3 xl:ms-0">
+          {/* progress bar section */}
+          <div className="mb-10">
+            <div className="flex items-center">
+              <h2 className="font-bold">Topics for This Course</h2>
+            </div>
+            <div className="mt-10 px-1 ">
+              <div className="relative pt-8">
+                <div
+                  className="absolute bottom-3 flex -translate-x-1/2 flex-col items-center"
+                  style={{ left: `${courseProgress}%` }}
+                >
+                  <div className="rounded-full border-2 p-2 border-grey-50">
+                    You
+                  </div>
 
-                  {/* Comments Section */}
-        <div >
+                  <div className="mt-1 w-2 h-2 rotate-180 bg-border [clip-path:polygon(50%_0%,0%_100%,100%_100%)]"></div>
+                </div>
+                <Progress
+                  value={courseProgress}
+                  className="**:data-[slot=progress-track]:h-2 **:data-[slot=progress-track]:bg-muted **:data-[slot=progress-indicator]:bg-accent"
+                />
+
+                <p
+                  className="absolute top-full -translate-x-1/2 pt-2 text-sm font-semibold text-dark-grey"
+                  style={{ left: `${courseProgress}%` }}
+                >
+                  {courseProgress}%
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Lesson List Section */}
+
+          {lessonDetails.map((lesson) => (
+            <LessonCard
+              key={lesson.id}
+              lessonTitle={lesson.lessonTitle}
+              lessonDescription={lesson.lessonDescription}
+              lessonItems={lesson.lessonItems}
+            />
+          ))}
+        </div>
+        {/* Comments Section */}
+        <div className="[grid-area:comments] mx-3 xl:ms-0">
           <h2 className="font-bold my-3">Comments</h2>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
@@ -255,55 +302,9 @@ export default function CourseDetails() {
             </Button>
           </div>
         </div>
-        </div>
-        {/* right side section */}
-        <div className="mx-3 xl:ms-0">
-          {/* progress bar section */}
-          <div className="mb-10">
-            <div className="flex items-center">
-              <h2 className="font-bold">Topics for This Course</h2>
-            </div>
-            <div className="mt-10 px-1 ">
-              <div className="relative pt-8">
-                <div
-                  className="absolute bottom-3 flex -translate-x-1/2 flex-col items-center"
-                  style={{ left: `${courseProgress}%` }}
-                >
-                  <div className="rounded-full border-2 p-2 border-grey-50">
-                    You
-                  </div>
-
-                  <div className="mt-1 w-2 h-2 rotate-180 bg-border [clip-path:polygon(50%_0%,0%_100%,100%_100%)]"></div>
-                </div>
-                <Progress
-                  value={courseProgress}
-                  className="**:data-[slot=progress-track]:h-2 **:data-[slot=progress-track]:bg-muted **:data-[slot=progress-indicator]:bg-accent"
-                />
-
-                <p
-                  className="absolute top-full -translate-x-1/2 pt-2 text-sm font-semibold text-dark-grey"
-                  style={{ left: `${courseProgress}%` }}
-                >
-                  {courseProgress}%
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Lesson List Section */}
-
-          {lessonDetails.map((lesson) => (
-            <LessonCard
-              key={lesson.id}
-              lessonTitle={lesson.lessonTitle}
-              lessonDescription={lesson.lessonDescription}
-              lessonItems={lesson.lessonItems}
-            />
-          ))}
-        </div>
       </div>
 
-      
+
     </>
   );
 }
