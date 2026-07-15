@@ -11,7 +11,7 @@ export default function LessonCard({
     lessonItems?: lessonItemType[]
 }) {
   return (
-    <div className=" p-4 border border-border rounded-md">
+    <div className=" p-4 border border-border rounded-md mb-5">
       <div className="border-b border-border">
         <h3 className="font-bold text-lg">{lessonTitle}</h3>
         <p className="text-dark-grey py-3">{lessonDescription}</p>

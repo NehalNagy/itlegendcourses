@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 import {
+  ArrowRight,
   Clock,
   Globe,
   LibraryBig,
@@ -36,32 +37,85 @@ let breadcrumbItems: breadcrumbItemType[] = [
   },
 ];
 
-let lessonDetails = [{
-  id: 1,
-  lessonTitle: "Week 1-4",
-  lessonDescription: "Advanced story telling techniques for writers: Personas, Characters & Plots",
-  lessonItems: [
-    {
-      id: 11,
-      title: "Introduction",
-      isLocked: false,
-      badges: [{badgeTitle:"0 Question", badgeColor:"green"},{badgeTitle:"10 minutes", badgeColor:"red"}],
-    },
-    {
-      id: 12,
-      title: "Course Overview",
-      isLocked: true,
-      badges: [{badgeTitle:"2 Question", badgeColor:"green"}],
-    },
-     {
-      id: 13,
-      title: "Course Exercise/Reference Files",
-      isLocked: true,
-      badges: [{badgeTitle:"2 Question", badgeColor:"green"}],
-    },
-  ],
-},
+let lessonDetails = [
+  {
+    id: 1,
+    lessonTitle: "Week 1-4",
+    lessonDescription:
+      "Advanced story telling techniques for writers: Personas, Characters & Plots",
+    lessonItems: [
+      {
+        id: 11,
+        title: "Introduction",
+        isLocked: false,
+        badges: [
+          { badgeTitle: "0 Question", badgeColor: "green" },
+          { badgeTitle: "10 minutes", badgeColor: "red" },
+        ],
+      },
+      {
+        id: 12,
+        title: "Course Overview",
+        isLocked: true,
+      },
+      {
+        id: 13,
+        title: "Course Exercise/Reference Files",
+        isLocked: true,
+        badges: [{ badgeTitle: "2 Question", badgeColor: "green" }],
+      },
+      {
+        id: 14,
+        title: "Code Editor Installation",
+        isLocked: true,
+      },
+      {
+        id: 15,
+        title: "Embedding PHP in HTML",
+        isLocked: true,
+      },
+    ],
+  },
 
+
+   {
+    id: 2,
+    lessonTitle: "Week 5-8",
+    lessonDescription:
+      "Advanced story telling techniques for writers: Personas, Characters & Plots",
+    lessonItems: [
+      {
+        id: 21,
+        title: "Introduction",
+        isLocked: false,
+        badges: [
+          { badgeTitle: "0 Question", badgeColor: "green" },
+          { badgeTitle: "10 minutes", badgeColor: "red" },
+        ],
+      },
+      {
+        id: 22,
+        title: "Course Overview",
+        isLocked: true,
+      },
+      {
+        id: 23,
+        title: "Course Exercise/Reference Files",
+        isLocked: true,
+        badges: [{ badgeTitle: "2 Question", badgeColor: "green" }],
+      },
+      {
+        id: 24,
+        title: "Code Editor Installation",
+        isLocked: true,
+      },
+      {
+        id: 25,
+        title: "Embedding PHP in HTML",
+        isLocked: true,
+      },
+    ],
+  },
 ];
 
 const pageTitle = "Starting SEO as your Home";
@@ -70,9 +124,9 @@ export default function CourseDetails() {
   return (
     <>
       <Header title={pageTitle} breadcrumbItems={breadcrumbItems} />
-      <div className="container mx-auto flex flex-wrap mt-3 ">
+      <div className="container mx-auto grid grid-cols-3 gap-8 mt-3 ">
         {/* left side section */}
-        <div className="w-full md:w-2/3">
+        <div className="col-span-2">
           <div className="h-96 rounded-sm">
             <Suspense fallback={<p>Loading video...</p>}>
               <VideoComponent />
@@ -81,29 +135,29 @@ export default function CourseDetails() {
           {/* icons section */}
           <div className="flex items-center gap-2 mt-4 my-5">
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
+              className="bg-white hover:bg-dark-grey text-black hover:text-white hover:border-none rounded-full p-2 cursor-pointer border-border border-2 w-9 h-9"
               title="Table of Contents"
             >
-              <TableOfContents className="text-black" />
+              <TableOfContents  />
             </Button>
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
+              className="bg-white hover:bg-dark-grey text-black hover:text-white hover:border-none rounded-full p-2 cursor-pointer border-border border-2 w-9 h-9"
               title="Comments"
             >
-              <MessageSquareText className="text-black" />
+              <MessageSquareText  />
             </Button>
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
+              className="bg-white hover:bg-dark-grey text-black hover:text-white hover:border-none rounded-full p-2 cursor-pointer border-border border-2 w-9 h-9"
               title="Ask a Question"
             >
-              <MessageCircleQuestionMark className="text-black" />
+              <MessageCircleQuestionMark  />
             </Button>
 
             <Button
-              className="bg-accent hover:bg-accent/80 rounded-full p-2 cursor-pointer"
+              className="bg-white hover:bg-dark-grey text-black hover:text-white hover:border-none rounded-full p-2 cursor-pointer border-border border-2 w-9 h-9"
               title="Leaderboard"
             >
-              <Podium className="text-black" />
+              <Podium  />
             </Button>
           </div>
           {/* Course Details Section */}
@@ -142,57 +196,9 @@ export default function CourseDetails() {
               </CardContent>
             </Card>
           </div>
-        </div>
-        {/* right side section */}
 
-        <div className=" w-full md:w-1/3">
-          {/* progress bar section */}
-          <div className="mb-10">
-            <div className="flex items-center">
-              <h2 className="font-bold">Topics for This Course</h2>
-            </div>
-            <div className="mt-10 px-1 ">
-              <div className="relative pt-8">
-                <div
-                  className="absolute bottom-3 flex -translate-x-1/2 flex-col items-center"
-                  style={{ left: `${courseProgress}%` }}
-                >
-                  <div className="rounded-full border-2 p-2 border-grey-50">
-                    You
-                  </div>
-
-                  <div className="mt-1 w-2 h-2 rotate-180 bg-border [clip-path:polygon(50%_0%,0%_100%,100%_100%)]"></div>
-                </div>
-                <Progress
-                  value={courseProgress}
-                  className="**:data-[slot=progress-track]:h-2 **:data-[slot=progress-track]:bg-muted **:data-[slot=progress-indicator]:bg-accent"
-                />
-
-                <p
-                  className="absolute top-full -translate-x-1/2 pt-2 text-sm font-semibold text-dark-grey"
-                  style={{ left: `${courseProgress}%` }}
-                >
-                  {courseProgress}%
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Lesson List Section */}
-
-          {lessonDetails.map((lesson) => (        
-          <LessonCard
-          key={lesson.id}
-            lessonTitle={lesson.lessonTitle}
-            lessonDescription={lesson.lessonDescription}
-            lessonItems={lesson.lessonItems}
-          />
-          ))}
-
-        </div>
-        {/* Comments Section */}
-
-        <div className="w-full md:w-2/3">
+                  {/* Comments Section */}
+        <div >
           <h2 className="font-bold my-3">Comments</h2>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
@@ -244,12 +250,60 @@ export default function CourseDetails() {
               aria-label="Write a comment"
               placeholder="Write a comment..."
             />
-            <Button className="w-fit bg-accent p-6 rounded-sm text-black hover:bg-accent/80">
-              Submit Review
+            <Button className="w-fit bg-accent p-6 rounded-sm  hover:bg-accent/80">
+              Submit Review <ArrowRight className="ms-2"/>
             </Button>
           </div>
         </div>
+        </div>
+        {/* right side section */}
+        <div>
+          {/* progress bar section */}
+          <div className="mb-10">
+            <div className="flex items-center">
+              <h2 className="font-bold">Topics for This Course</h2>
+            </div>
+            <div className="mt-10 px-1 ">
+              <div className="relative pt-8">
+                <div
+                  className="absolute bottom-3 flex -translate-x-1/2 flex-col items-center"
+                  style={{ left: `${courseProgress}%` }}
+                >
+                  <div className="rounded-full border-2 p-2 border-grey-50">
+                    You
+                  </div>
+
+                  <div className="mt-1 w-2 h-2 rotate-180 bg-border [clip-path:polygon(50%_0%,0%_100%,100%_100%)]"></div>
+                </div>
+                <Progress
+                  value={courseProgress}
+                  className="**:data-[slot=progress-track]:h-2 **:data-[slot=progress-track]:bg-muted **:data-[slot=progress-indicator]:bg-accent"
+                />
+
+                <p
+                  className="absolute top-full -translate-x-1/2 pt-2 text-sm font-semibold text-dark-grey"
+                  style={{ left: `${courseProgress}%` }}
+                >
+                  {courseProgress}%
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Lesson List Section */}
+
+          {lessonDetails.map((lesson) => (
+            <LessonCard
+              key={lesson.id}
+              lessonTitle={lesson.lessonTitle}
+              lessonDescription={lesson.lessonDescription}
+              lessonItems={lesson.lessonItems}
+            />
+          ))}
+        </div>
       </div>
+
+      
     </>
   );
 }
